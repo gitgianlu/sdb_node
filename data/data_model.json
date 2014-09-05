@@ -1,0 +1,87 @@
+////Unique collection: app_mobile
+
+//USERS doc type
+
+{
+	"_id" : [ObjectId()],
+	"nickname" : "gian",
+	"email" : "kamikaz@tiscali.it",
+	"udids" : [deviceid1,deviceid2],
+	"date" : Date(),
+	"doctype" : "user"
+}
+
+//CAZZATE
+
+{
+	"_id" : [ObjectId()],
+	"data": [ObjecId("this.objectid").getTimestamp(),]
+	"iduser": [userdoc._id],
+	"titolo" : "Pasta e le costine",
+	"notifica" : "guarda quanto è fesso il Pasta",
+	"descrizione": "Questa foto è stata fatta durante una cena dei Soci",
+	"media": [URL img, audio, video on the server or linked],
+	"doctype" : "cazzata"
+}
+
+//LOGS_CAZZATE
+
+{
+	"_id" : [ObjectId()],
+	"idcazzata" : [cazzatadoc._id],
+	"iduser" : [userdoc._id],
+	"actiontype" : (create, update, delete, view, like),
+	"doctype" : "logcazzata"
+}
+
+//LOGS_USER
+
+{
+	"_id" : [ObjectId()],
+	"iduser" : [userdoc._id],
+	"actiontype" : (change email, change name, change udids ),
+	"doctype" : "loguser"
+}
+
+
+/// SAMPLE DATA GENERATION
+
+db.app_mobile.insert({ "nickname" : "testuser1", "email" : "testuser1@testdomain.com", "udids" : "device1" })
+
+
+for (var k = 1; k <= 25; k++) db.app_mobile_dev.insert( {
+	"nickname" : "gian" + k,
+	"email" : "kamikaz@tiscali.it" + k,
+	"udids" : "device1",
+	"doctype":"user"
+} )
+
+for (var k = 1; k <= 25; k++) db.app_mobile_dev.insert( 
+{
+	"data": Date(),
+	"iduser": "gian" + k,
+	"titolo" : "Pasta e le costine" ,
+	"notifica" : "guarda quanto è fesso il Pasta",
+	"descrizione": "Questa foto è stata fatta durante una cena dei Soci",
+	"media": "static/img"+k+"jpg",
+	"doctype":"cazzata"
+}
+)
+
+
+for (var k = 1; k <= 25; k++) db.app_mobile_dev.insert( 
+{
+	"idcazzata" : "cazzata" + k,
+	"iduser" : "gian" + k,
+	"actiontype" : "create",
+	"doctype":"logcazzata"
+}
+)
+
+for (var k = 1; k <= 25; k++) db.app_mobile_dev.insert( 
+{
+	"iduser" : "gian" + k,
+	"actiontype" : "change email",
+	"doctype":"loguser"
+}
+)

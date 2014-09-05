@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h1= title
+	form#formModCazzata(name="updatecazzata",method="post",action="/updatecazzata")
+		input#inputIdCazzata(type="text", placeholder="id", name="id")
+		input#inputIdCazzata(type="text", placeholder="email", name="email")
+		input#inputTitolo(type="text", placeholder="titolo", name="titolo")
+		input#inputNotifica(type="text", placeholder="notifica", name="notifica")
+		input#inputDescrizione(type="text", placeholder="descrizione", name="descrizione")
+		input#inputMedia(type="text", placeholder="media", name="media")
+		button#btnSubmit(type="submit") submitta

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1= title
+    form#formAddCazzata(name="addcazzata",method="post",action="/addcazzata")
+        input#inputUser(type="text", placeholder="email", name="email")
+        input#inputTitolo(type="text", placeholder="titolo", name="title")
+        input#inputNotifica(type="text", placeholder="notifica", name="notification")
+        input#inputDescrizione(type="text", placeholder="descrizione", name="description")
+        input#inputMedia(type="text", placeholder="media", name="media")
+        button#btnSubmit(type="submit") submitta

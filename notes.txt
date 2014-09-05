@@ -1,0 +1,10 @@
+git config --list
+git init
+git remote add origin https://github.com/gitgianlu/sdb_node
+git add *
+git commit -m "first commit"
+git push origin master
+
+on AWS:
+git clone https://github.com/gitgianlu/sdb_node
+git pull

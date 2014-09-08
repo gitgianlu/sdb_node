@@ -67,7 +67,7 @@ app.use(function(err, req, res, next) {
 
 var debug = require('debug')('nodetest2');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8080);
 console.log('Starting SdB...');
 
 var server = app.listen(app.get('port'), function() {

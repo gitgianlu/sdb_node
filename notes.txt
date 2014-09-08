@@ -27,6 +27,7 @@ git commit
 ..or (to avoid add and to have quick commit message)
 git commit -a -m "commit message"
 
+git push origin master
 
 Log
 ---

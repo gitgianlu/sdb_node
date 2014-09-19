@@ -16,7 +16,7 @@ var collection = "app_mobile_dev"
  *- richiedi solo gli ultimi 10 documenti che hanno un titolo (cazzate), da implementare il paging su richiesta del client per andare indietro nel tempo
  */
 
-router.get('/listcazzate/:iduser/:items/:skip', function(req, res) {
+router.get('/sdb/listcazzate/:iduser/:items/:skip', function(req, res) {
     var db = req.db;
     var limit = req.params.items;
     var email = req.params.iduser;
@@ -47,7 +47,7 @@ router.get('/listcazzate/:iduser/:items/:skip', function(req, res) {
  *- l'utente deve essere inviato automaticamente dal client e controllato in modo da avere un id univoco per email/device
  */
 
-router.post('/addcazzata', function(req, res) {
+router.post('/sdb/addcazzata', function(req, res) {
     var db = req.db;
 
 	var email = req.body.email;
@@ -93,7 +93,7 @@ router.post('/addcazzata', function(req, res) {
  *- il doctype deve essere inserito dal server e non dal client per evitare spoofing
  */
 
-router.post('/updatecazzata', function(req, res) {
+router.post('/sdb/updatecazzata', function(req, res) {
 	var db = req.db;
 
 	var idcazzata = req.body.id;
@@ -163,7 +163,7 @@ router.post('/updatecazzata', function(req, res) {
  *- da trasformare in DELETE con corpo del messaggio che contiene l'autenticazione dell'utente (UDID/email/nickname)
  */
 
-router.post('/deletecazzata', function(req, res) {
+router.post('/sdb/deletecazzata', function(req, res) {
 	var db = req.db;
 
 	var idcazzata = req.body.id;
@@ -201,7 +201,7 @@ router.post('/deletecazzata', function(req, res) {
  *- occorre inserire una logica per inviare le email di conferma utente, altrimenti uno può simulare tutti gli account email con un device
  */
 
-router.post('/adduser', function(req, res) {
+router.post('/sdb/adduser', function(req, res) {
 
     var db = req.db;
 
@@ -278,23 +278,23 @@ router.post('/adduser', function(req, res) {
  * SUPPORT PAGES AND API CALLS AND FUNCTIONS
  */
 
-router.get('/newuser', function(req, res) {
+router.get('/sdb/newuser', function(req, res) {
     res.render('newuser', { title: 'Add New User' });
 });
 
-router.get('/newcazzata', function(req, res) {
+router.get('/sdb/newcazzata', function(req, res) {
     res.render('newcazzata', { title: 'Add New Cazzata' });
 });
 
-router.get('/modifycazzata', function(req, res) {
+router.get('/sdb/modifycazzata', function(req, res) {
     res.render('modifycazzata', { title: 'Modify Cazzata' });
 });
 
-router.get('/delcazzata', function(req, res) {
+router.get('/sdb/delcazzata', function(req, res) {
     res.render('delcazzata', { title: 'Delete Cazzata' });
 });
 
-router.get('/listusers', function(req, res) {
+router.get('/sdb/listusers', function(req, res) {
     var db = req.db;
     db.collection(collection).find({ doctype: "user" }).toArray(function (err, items) {
         res.json(items);

@@ -16,6 +16,9 @@ git add *
 git commit -m "first commit"
 git push origin master
 
+
+
+
 Nuovi Commit
 ------------
 
@@ -29,12 +32,14 @@ git commit -a -m "commit message"
 
 git push origin master
 
-Log
----
 
 
-
-on AWS:
+**on AWS:
 -------
 git clone https://github.com/gitgianlu/sdb_node
 git pull
+
+
+forever list
+forever restartall
+
